@@ -1,0 +1,11 @@
+.search {
+  margin-bottom: 25px;
+}
+
+.item-container {
+  margin: 10px;
+}
+
+.item-container img {
+  max-width: 250px;
+}

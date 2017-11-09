@@ -1,0 +1,69 @@
+<h2>Register User</h2>
+
+<form #registerForm='ngForm' (submit)='register()'>
+  <div class='form-group'>
+    <label for='name'>Name</label>
+
+    <input
+      #name='ngModel'
+      [(ngModel)]='user.name'
+      type='text'
+      id='name'
+      name='name'
+      placeholder='Username'
+      required />
+    <span [hidden]='name.valid || name.pristine'>
+      Name is required!
+    </span>
+  </div>
+
+  <div class='form-group'>
+    <label for='email'>E-mail</label>
+
+    <input
+      #email='ngModel'
+      [(ngModel)]='user.email'
+      type='email'
+      id='email'
+      name='email'
+      placeholder='E-mail'
+      required />
+  </div>
+  <span [hidden]='email.valid || email.pristine'>
+      E-mail is required!
+    </span>
+
+  <div class='form-group'>
+    <label for='password'>Password</label>
+
+    <input
+      #password='ngModel'
+      [(ngModel)]='user.password'
+      type='password'
+      id='password'
+      name='password'
+      placeholder='Password'
+      required />
+  </div>
+  <span [hidden]='password.valid || password.pristine'>
+      Password is required!
+    </span>
+
+  <div class='form-group'>
+    <label for='confirmPassword'>Confirm Password</label>
+
+    <input
+      #confirmPassword='ngModel'
+      [(ngModel)]='user.confirmPassword'
+      type='password'
+      id='confirmPassword'
+      name='confirmPassword'
+      placeholder='Confirm Password'
+      required />
+  </div>
+  <span [hidden]='confirmPassword.value === password.value || confirmPassword.pristine'>
+      Passwords do not match!
+    </span>
+
+  <button [disabled]='!registerForm.form.valid || confirmPassword.value !== password.value' type='submit'>Register User</button>
+</form>

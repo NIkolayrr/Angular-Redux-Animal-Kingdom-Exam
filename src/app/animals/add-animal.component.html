@@ -1,0 +1,106 @@
+<h2>Add Animal</h2>
+<form #addAnimalForm='ngForm' (submit)='addAnimal()'>
+  <div class='form-group'>
+    <label for='name'>Name</label>
+    <input
+      #name='ngModel'
+      [(ngModel)]='animal.name'
+      type='text'
+      id='name'
+      name='name'
+      placeholder='name'
+      required />
+  </div>
+  <span [hidden]='name.valid || name.pristine'>
+      Name is required!
+  </span>
+
+  <div class='form-group'>
+    <label for='age'>Age</label>
+    <input
+      #age='ngModel'
+      [(ngModel)]='animal.age'
+      type='number'
+      id='age'
+      name='age'
+      placeholder='Age'
+      required />
+  </div>
+  <span [hidden]='age.valid || age.pristine'>
+        Age is required!
+  </span>
+
+  <div class='form-group'>
+    <label for='color'>Color</label>
+    <input
+      #color='ngModel'
+      [(ngModel)]='animal.color'
+      type='text'
+      id='color'
+      name='color'
+      placeholder='Color'
+      required />
+  </div>
+  <span [hidden]='color.valid || color.pristine'>
+      Color is required!
+  </span>
+
+  <div class='form-group'>
+    <label for='type'>Type</label>
+    <select
+      #type='ngModel'
+      [(ngModel)]='animal.type'
+      type='text'
+      id='type'
+      name='type'
+      required>
+      <option *ngFor="let type of types" [value]="type">{{type}}</option>
+    </select>
+  </div>
+  <span [hidden]='type.valid || type.pristine'>
+        type can be Cat, Dog, Bunny, Exotic or Other
+  </span>
+
+  <div class='form-group'>
+    <label for='price'>Price</label>
+    <input
+      #price='ngModel'
+      [(ngModel)]='animal.price'
+      type='number'
+      id='price'
+      name='price'
+      placeholder='Price'
+      required />
+  </div>
+  <span [hidden]='price.valid || price.pristine'>
+      Price is required!
+  </span>
+
+  <div class='form-group'>
+    <label for='image'>Image</label>
+    <input
+      #image='ngModel'
+      [(ngModel)]='animal.image'
+      type='url'
+      id='image'
+      name='image'
+      placeholder='Image'
+      required />
+  </div>
+  <span [hidden]='image.valid || image.pristine'>
+      Image is required!
+  </span>
+
+  <div class='form-group'>
+    <label for='breed'>Breed</label>
+    <input
+      #milleage='ngModel'
+      [(ngModel)]='animal.breed'
+      type='text'
+      id='breed'
+      name='breed'
+      placeholder='Breed' />
+  </div>
+
+  <button [disabled]='!addAnimalForm.form.valid' type='submit'>Add Animal</button>
+</form>

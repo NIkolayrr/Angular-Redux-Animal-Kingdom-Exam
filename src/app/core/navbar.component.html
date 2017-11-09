@@ -1,0 +1,16 @@
+<div>
+  <span>
+    <a routerLink='/'>Home</a>
+    <a routerLink='/animals/all'>List Animals</a>
+  </span>
+  <span *ngIf='authenticated'>
+    <a routerLink='/animals/mine'>{{username}}</a>
+    <a routerLink='/animals/create'>Create Animal</a>
+    <!--This will make fake anchor tag that will do nothing(wont refresh)-->
+    <a href='javascript:void(0)' (click)='logout()'>Logout</a>
+  </span>
+  <span *ngIf='!authenticated'>
+    <a routerLink='/users/register'>Register</a>
+    <a routerLink='/users/login'>Login</a>
+  </span>
+</div>

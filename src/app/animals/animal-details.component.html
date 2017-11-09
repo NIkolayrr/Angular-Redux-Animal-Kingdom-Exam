@@ -1,0 +1,34 @@
+<h2>Animal Details</h2>
+<div *ngIf='animal'>
+  <h2>{{animal.name}} {{animal.type}}</h2>
+  <img src={{animal.image}} alt={{animal.name}}>
+  <h4>Price - $ {{animal.price}}</h4>
+  <h4>Color - {{animal.color}}</h4>
+</div>
+
+<h2>Add Animal</h2>
+<form #commentForm='ngForm' (submit)='f.addComment()'>
+    <div class='form-group'>
+      <label for='message'>Comment</label>
+      <textarea
+        id='message'
+        name='message'
+        [(ngModel)]='comment.message'
+        #message='ngModel'>
+      </textarea>
+    </div>
+
+    <button
+      type='submit'
+      [disabled]='!commentForm.form.valid'>
+      Submit
+    </button>
+  </form>
+
+<div>
+  <div *ngFor='let comment of comments'>
+    <span *ngIf='review.comment'>
+      {{comment.comment}}
+    </span>
+  </div>
+</div>
